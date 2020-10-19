@@ -11,12 +11,14 @@ WORKDIR /usr/src/app
 
 RUN apk --no-cache add --virtual native-deps \
   g++ gcc libgcc libstdc++ linux-headers make python py-pip \
-  graphicsmagick exiftool && \
-  npm  --no-color install --quiet node-gyp 2>&1 -g &&\
-  npm --no-color  install --no-dev --quiet 2>&1 && \
-  pip3 install --upgrade pip && \
-  pip3 install awscli && \
-  rm -rf /var/cache/apk/* && \
+  graphicsmagick exiftool
+
+RUN npm  --no-color install --quiet node-gyp 2>&1 -g
+RUN pip3 install --upgrade pip && \
+  pip3 install awscli
+RUN npm --no-color  install --no-dev --quiet 2>&1
+
+RUN  rm -rf /var/cache/apk/* && \
   apk del native-deps
 
 ENV PORT 8080
