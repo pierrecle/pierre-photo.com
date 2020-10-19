@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -m
 npm --no-color run watch &
 npm --no-color run serve

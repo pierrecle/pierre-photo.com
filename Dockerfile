@@ -17,4 +17,4 @@ RUN  rm -rf /var/cache/apk/* && \
 ENV PORT 8080
 EXPOSE 8080
 
-CMD bash start.sh
+CMD sh start.sh
