@@ -10,7 +10,7 @@ RUN npm --no-color install 2>&1
 WORKDIR /usr/src/app
 
 RUN apk --no-cache add --virtual native-deps \
-  g++ gcc libgcc libstdc++ linux-headers make python3 py3-pip \
+  g++ gcc libgcc libstdc++ linux-headers make python py-pip \
   graphicsmagick exiftool && \
   npm  --no-color install --quiet node-gyp 2>&1 -g &&\
   npm --no-color  install --no-dev --quiet 2>&1 && \
