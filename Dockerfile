@@ -6,13 +6,13 @@ RUN apk --no-cache add --virtual native-deps \
   g++ gcc libgcc libstdc++ linux-headers make python py-pip
 RUN npm  --no-color install --quiet node-gyp 2>&1 -g
 
-RUN  rm -rf /var/cache/apk/* && \
-  apk del native-deps
+#RUN  rm -rf /var/cache/apk/* && \
+#  apk del native-deps
 
 WORKDIR /usr/src/app
 COPY . .
 
-RUN python -m pip install awscli
+RUN pip install awscli
 RUN npm --no-color install --quiet 2>&1
 
 ENV PORT 8080
