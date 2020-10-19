@@ -6,9 +6,6 @@ RUN apk --no-cache add --virtual native-deps \
   g++ gcc libgcc libstdc++ linux-headers make python py-pip
 RUN npm  --no-color install --quiet node-gyp 2>&1 -g
 
-#RUN  rm -rf /var/cache/apk/* && \
-#  apk del native-deps
-
 WORKDIR /usr/src/app
 COPY . .
 
