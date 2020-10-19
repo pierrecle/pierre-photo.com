@@ -12,8 +12,8 @@ RUN  rm -rf /var/cache/apk/* && \
 WORKDIR /usr/src/app
 COPY . .
 
-RUN pip3 install --upgrade pip && \
-  pip3 install awscli
+RUN pip install --upgrade pip && \
+  pip install awscli
 RUN npm --no-color install --quiet 2>&1
 
 ENV PORT 8080
