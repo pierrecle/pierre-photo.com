@@ -6,13 +6,13 @@ RUN apk --no-cache add --virtual native-deps \
 RUN npm  --no-color install --quiet node-gyp 2>&1 -g
 RUN pip install awscli
 
-RUN  rm -rf /var/cache/apk/* && \
-  apk del native-deps
-
 WORKDIR /usr/src/app
 COPY . .
 
 RUN npm --no-color install --quiet 2>&1
+
+RUN  rm -rf /var/cache/apk/* && \
+  apk del native-deps
 
 ENV PORT 8080
 EXPOSE 8080
