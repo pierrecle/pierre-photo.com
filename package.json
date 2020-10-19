@@ -17,7 +17,7 @@
     "build:galleries": "cd data && thumbsup --config thumbsup_config.json",
     "postbuild:galleries": "npm run copy:photoswipe:lib && npm run copy:photoswipe:assets && rm data/website/albums/Prive.html",
     "copy:photoswipe:lib": "cp data/themes/2019/libs/photoswipe/*.min.js ./data/website/public",
-    "copy:photoswipe:assets": "cp data/themes/2019/libs/photoswipe/light-skin/*.{png,svg,gif} ./data/website/public",
+    "copy:photoswipe:assets": "npx cpy data/themes/2019/libs/photoswipe/light-skin/*.{png,svg,gif} ./data/website/public",
     "build:index": "node index.js",
     "copy:ressources": "npm run copy:favicon && npm run copy:books",
     "copy:favicon": "cp -pr ./data/resources/favicon ./data/website/assets",
