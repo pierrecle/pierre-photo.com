@@ -16,5 +16,4 @@ ENV PORT 8080
 EXPOSE 8080
 
 WORKDIR /usr/src/app
-CMD npm --no-color run serve && \
-  npm --no-color run watch 
+CMD ./start.sh
