@@ -26,7 +26,7 @@
     "watch": "nodemon --watch 'data' --ignore 'data/website' --delay 300 -e '*' --exec 'npm run build'",
     "deploy": "npm run deploy:sync && npm run deploy:invalidate",
     "deploy:sync": "aws s3 sync data/website s3://$BUCKET --delete --exclude thumbsup.* --acl public-read",
-    "deploy:invalidate": "[ ! -z \"$AWS_ACCESS_KEY_ID\" ] && (aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths \"/\" \"/*.html\" \"/albums/*.html\" \"/public/theme.css\" \"/public/*.js\" >/dev/null) || (exit 0)"
+    "deploy:invalidate": "[ ! -z \"$AWS_ACCESS_KEY_ID\" ] && (aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths \"/\" \"/index.html\" \"/background.jpg\" \"/albums/*\" \"/public/*\" >/dev/null) || (exit 0)"
   },
   "devDependencies": {}
 }
