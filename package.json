@@ -1,0 +1,28 @@
+{
+  "name": "pierre-photo.com",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "cpy-cli": "^3.1.1",
+    "glob": "^7.1.6",
+    "http-server": "^0.12.3",
+    "marked": "^1.2.0",
+    "nodemon": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "thumbsup": "^2.12.0"
+  },
+  "scripts": {
+    "build": "npm run build:galleries && npm run build:index && npm run copy:ressources",
+    "build:galleries": "cd data && thumbsup --config thumbsup_config.json",
+    "postbuild:galleries": "npm run copy:photoswipe:lib && npm run copy:photoswipe:assets",
+    "copy:photoswipe:lib": "cp data/themes/2019/libs/photoswipe/*.min.js ./data/website/public",
+    "copy:photoswipe:assets": "cp data/themes/2019/libs/photoswipe/light-skin/*.{png,svg,gif} ./data/website/public",
+    "build:index": "node index.js",
+    "copy:ressources": "npm run copy:favicon && npm run copy:books",
+    "copy:favicon": "cp -pr ./data/resources/favicon ./data/website/assets",
+    "copy:books": "npx cpy data/content/**/*.pdf data/website/books",
+    "serve": "npx http-server -c-1 data/website",
+    "watch": "nodemon --watch 'data' --ignore 'data/website' -e '*' --exec 'npm run build'"
+  },
+  "devDependencies": {}
+}
