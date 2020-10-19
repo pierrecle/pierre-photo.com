@@ -16,4 +16,7 @@ ENV PORT 8080
 EXPOSE 8080
 
 WORKDIR /usr/src/app
-CMD ./start.sh
+
+RUN ["chmod", "+x", "/usr/src/app/docker-entrypoint.sh"]
+
+ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
