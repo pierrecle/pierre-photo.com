@@ -1,4 +1,4 @@
-// Generate index.html
+// Generate index.html, gm and handlebars installed by thumbsup
 
 const Handlebars = require("handlebars");
 const fs = require('fs');
