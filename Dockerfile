@@ -11,9 +11,6 @@ COPY . .
 
 RUN npm --no-color install --quiet 2>&1
 
-RUN  rm -rf /var/cache/apk/* && \
-  apk del native-deps
-
 ENV PORT 8080
 EXPOSE 8080
 
